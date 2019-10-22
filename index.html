@@ -30,8 +30,10 @@
 
 
     const highestCardInArray = (arrOfCardStrings) => {
-      return true
-
+      const arrayOfNumbersAsStrings = dropCardSuitFromArray(arrOfCardStrings)
+      const arrayOfNumbers = arrayOfNumbersAsStrings.map(string => parseInt(string))
+      const arrayOfNumbersSorted = arrayOfNumbers.sort((a, b) => a - b)
+      return arrayOfNumbersSorted[arrayOfNumbersSorted.length - 1]
     }
 
 
