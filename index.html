@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mocha Tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+</head>
+
+<body>
+  <!-- Mocha setup -->
+  <div id="mocha"></div>
+  <script src="https://unpkg.com/chai/chai.js"></script>
+  <script src="https://unpkg.com/mocha/mocha.js"></script>
+
+  <script class="mocha-init">
+    mocha.setup('bdd');
+    mocha.checkLeaks();
+  </script>
+
+  <!-- Main code -->
+  <script>
+    // write your code here
+
+    const dropCardSuit = (cardString) => cardString[0]
+
+    const dropCardSuitFromArray = (arrOfCardStrings) => {
+      return arrOfCardStrings.map(dropCardSuit)
+    }
+
+
+    const highestCardInArray = (arrOfCardStrings) => {
+
+
+    }
+
+
+    const winnerOfTrick = (arrOfCardStrings, arrOfPlayerNames) => {
+
+
+    }
+  </script>
+
+  <!-- tests -->
+  <script>
+    const expect = chai.expect
+  </script>
+  <script>
+    // write your tests here
+    describe('dropCardSuit', () => {
+      it("drops a single card's suit", () => {
+        expect(dropCardSuit('4D')).to.equal('4')
+      })
+    })
+
+    describe('dropCardSuitFromArray', () => {
+      it('will drop suit of cards in an array', () => {
+        const cards = ['2D', '4D', '3S']
+        expect(dropCardSuitFromArray(cards)).to.deep.equal(['2', '4', '3'])
+      })
+    })
+
+
+    describe('highestCardInArray', () => {
+        it('can identify the highest card in an array', () => {
+          const cards = ['2D', '4D', '3S']
+          expect(highestCardInArray(cards)).to.equal("4D")
+        })
+      })
+
+
+    describe('winnerOfTrick', () => {
+      it('can identify a simple winner when there are the same number of cards as players', () => {
+        const cards = ["2D", "4D", "3S"]
+        const players = ["GgbA", "mZoIs", "S'Lg"]
+        expect(winnerOfTrick(cards, players)).to.equal("mZoIs wins")
+      })
+    })
+
+
+
+
+
+  </script>
+  <script class="mocha-exec">
+    mocha.run();
+  </script>
+</body>
+
+</html>
